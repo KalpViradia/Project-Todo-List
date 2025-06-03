@@ -1,59 +1,95 @@
-# TodoList
+Here’s the updated `README.md` file with a clear **"How it Works"** section and without the **Contributing** section:
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+---
 
-## Development server
+# 📝 Project Todo List
 
-To start a local development server, run:
+A modern, responsive, and efficient To-Do List application built using **Angular 19** and **Tailwind CSS**. This app helps users manage their daily tasks with an intuitive and clean interface.
 
-```bash
-ng serve
+---
+
+## 🚀 Features
+
+* Add, edit, and delete tasks
+* Mark tasks as completed
+* Sort tasks by status
+* Fully responsive UI
+* Real-time updates using Angular forms
+* Clean design using Tailwind CSS
+
+---
+
+## 🛠️ Technologies Used
+
+* [Angular 19](https://angular.io/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* TypeScript
+* HTML5 & CSS3
+
+---
+
+## 📦 Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/KalpViradia/Project-Todo-List.git
+   cd Project-Todo-List
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+
+   ```bash
+   ng serve
+   ```
+
+4. **Open your browser** and navigate to:
+
+   ```
+   http://localhost:4200/
+   ```
+
+---
+
+## ⚙️ How It Works
+
+1. **Task Management Interface**:
+   The app displays an input box to enter a new task. Each task consists of a title and optional metadata like completion status.
+
+2. **Adding a Task**:
+   Type your task in the input field and click "Add" to push it into the list. Angular's form handling instantly updates the view.
+
+3. **Mark as Complete**:
+   You can check off tasks to mark them as done. The completed tasks are visually styled differently for easy tracking.
+
+4. **Edit or Delete**:
+   Tasks can be edited or removed by clicking the respective icons beside each task.
+
+5. **Tailwind Styling**:
+   The entire layout is styled with Tailwind for a mobile-first, responsive experience.
+
+---
+
+## 📁 Project Structure
+
+```
+Project-Todo-List/
+├── src/
+│   ├── app/
+│   │   ├── components/       # Reusable components
+│   │   ├── services/         # Angular services
+│   │   ├── models/           # TypeScript interfaces
+│   │   └── app.module.ts     # Root Angular module
+├── tailwind.config.js        # Tailwind CSS configuration
+├── angular.json              # Angular project settings
+├── package.json              # Dependencies and scripts
+└── README.md                 # Project documentation
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
