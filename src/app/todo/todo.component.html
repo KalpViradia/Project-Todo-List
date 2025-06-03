@@ -1,0 +1,147 @@
+<div class="p-6 max-w-4xl mx-auto">
+  <!-- Todo List Header -->
+  <h2 class="text-3xl font-semibold mb-6 text-center text-primary">
+    Todo List
+  </h2>
+
+  <!-- Add or Update Task Form -->
+  <form
+    (ngSubmit)="addTask()"
+    class="space-y-4 mb-6 bg-gray-50 p-6 rounded-lg shadow-md"
+  >
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <!-- Title Input -->
+      <div>
+        <label for="title" class="block text-lg font-medium text-gray-700"
+          >Title:</label
+        >
+        <input
+          type="text"
+          id="title"
+          [(ngModel)]="newTaskTitle"
+          name="title"
+          required
+          placeholder="Enter task title"
+          class="input input-bordered w-full"
+        />
+      </div>
+
+      <!-- Description Input -->
+      <div>
+        <label for="description" class="block text-lg font-medium text-gray-700"
+          >Description:</label
+        >
+        <input
+          type="text"
+          id="description"
+          [(ngModel)]="newTaskDescription"
+          name="description"
+          placeholder="Enter task description"
+          class="input input-bordered w-full"
+        />
+      </div>
+
+      <!-- Priority Select -->
+      <div>
+        <label for="priority" class="block text-lg font-medium text-gray-700"
+          >Priority:</label
+        >
+        <select
+          id="priority"
+          [(ngModel)]="newTaskPriority"
+          name="priority"
+          required
+          class="select select-bordered w-full"
+        >
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+
+      <!-- Due Date Picker -->
+      <div>
+        <label for="dueDate" class="block text-lg font-medium text-gray-700"
+          >Due Date:</label
+        >
+        <input
+          type="date"
+          id="dueDate"
+          [(ngModel)]="newTaskDueDate"
+          name="dueDate"
+          required
+          class="input input-bordered w-full"
+        />
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary w-full mt-4">
+      {{ isEditMode ? "Update Task" : "Add Task" }}
+    </button>
+  </form>
+
+  <!-- Tasks List -->
+  <div *ngIf="tasks.length > 0; else noTasks">
+    <div
+      *ngFor="let task of tasks"
+      class="relative flex bg-white rounded-lg shadow-md mb-6 overflow-hidden"
+      [ngClass]="{ 'opacity-50': task.completed === '1' }"
+    >
+      <!-- Priority Indicator Strip -->
+      <div
+        class="w-2"
+        [ngClass]="{
+          'bg-green-500': task.priority === 'Low',
+          'bg-yellow-500': task.priority === 'Medium',
+          'bg-red-500': task.priority === 'High'
+        }"
+      ></div>
+
+      <!-- Task Content -->
+      <div class="flex-1 p-4">
+        <div class="flex flex-col space-y-2 mb-4">
+          <h3 class="text-xl font-semibold text-blue-600">{{ task.title }}</h3>
+          <p class="text-gray-700">{{ task.description }}</p>
+          <p class="text-sm text-gray-500">Priority: {{ task.priority }}</p>
+          <p class="text-sm text-gray-500">Due: {{ task.dueDate }}</p>
+          <p
+            class="text-sm"
+            [ngClass]="{
+              'text-green-600': task.status === 'Completed',
+              'text-yellow-600': task.status === 'Incomplete',
+              'text-red-600': task.status === 'Overdue'
+            }"
+          >
+            Status: {{ task.status }}
+          </p>
+        </div>
+
+        <!-- Action Buttons Below Task Details -->
+        <div class="flex justify-start space-x-4">
+          <button (click)="deleteTask(task)" class="btn btn-error btn-sm">
+            Delete
+          </button>
+          <button (click)="editTask(task)" class="btn btn-warning btn-sm">
+            Edit
+          </button>
+
+          <!-- Toggle Task Status -->
+          <button
+            (click)="toggleCompleted(task)"
+            class="btn btn-success btn-sm"
+          >
+          {{ task.completed ? "Mark Incomplete" : "Mark Completed" }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Tasks Message -->
+  <ng-template #noTasks>
+    <div class="text-center text-gray-500 mt-10">
+      <p>No tasks found</p>
+    </div>
+  </ng-template>
+</div>
