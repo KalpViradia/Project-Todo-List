@@ -1,7 +1,3 @@
-Here’s the updated `README.md` file with a clear **"How it Works"** section and without the **Contributing** section:
-
----
-
 # 📝 Project Todo List
 
 A modern, responsive, and efficient To-Do List application built using **Angular 19** and **Tailwind CSS**. This app helps users manage their daily tasks with an intuitive and clean interface.
